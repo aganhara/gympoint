@@ -13,11 +13,14 @@ To run the application is necessary a PostgreSQL database running.
 Create a .env file in root patch and set the following environment variables:
 
 ```
+  SERVER_PORT=server port //default 3000
   DB_DIALECT=database dialect
   DB_HOST=database host
   DB_USERNAME=database username
   DB_PASSWORD=database password
   DB_NAME=database name
+  AUTH_SECRET=Secret key for generate token
+  AUTH_EXPIRES_IN=Time to expire the token
 ```
 
 ## Creating Database
