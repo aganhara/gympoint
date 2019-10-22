@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-console.log(process.env.DB_DEFINE_TIMESTAMPS);
 module.exports = {
   dialect: process.env.DB_DIALECT,
   host: process.env.DB_HOST,
