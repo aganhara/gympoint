@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 import StudentRegistration from '../models/StudentRegistration';
 import Student from '../models/Student';
 import Plan from '../models/Plan';
+import Mail from '../../lib/Mail';
 
 class StudentRegistrationController {
   async index(req, res) {
@@ -34,6 +35,13 @@ class StudentRegistrationController {
     }
 
     const studentRegistration = await StudentRegistration.create(req.body);
+
+    await Mail.sendMail({
+      to: `Anderson <teste@mail.com>`,
+      subject: 'Registro realizado com sucesso.',
+      text: 'Testando envio de mensagem',
+    });
+
     return res.json(studentRegistration);
   }
 
