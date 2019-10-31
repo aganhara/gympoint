@@ -3,6 +3,7 @@ import SessionController from './app/controllers/SessionController';
 import StudentController from './app/controllers/StudentController';
 import PlanController from './app/controllers/PlanController';
 import StudentRegistrationController from './app/controllers/StudentRegistrationController';
+import CheckinController from './app/controllers/CheckinController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -11,6 +12,8 @@ const routes = new Router();
 routes.get('/', (req, res) => res.send('Hello World!'));
 
 routes.post('/login', SessionController.store);
+routes.get('/students/:student_id/checkin', CheckinController.index);
+routes.post('/students/:student_id/checkin', CheckinController.store);
 
 routes.use(authMiddleware); // All routes below this line will only call if the user is authenticated.
 
