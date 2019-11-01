@@ -7,30 +7,26 @@ This application is about gym management and the main goal is to study about Nod
 This is part of a training, and the code will be used to certifies my knowledge at the end of Rocketseat GoStack training.
 
 ---
-# Setup
+## Setup
 
-To run the application is necessary a PostgreSQL database running.
-Create a .env file in root patch and set the following environment variables:
+To run the application is necessary a PostgreSQL database and Redis running.
+Create a .env file in root patch and set the following environment variables.
 
-```
-  SERVER_PORT=server port //default 3000
-  DB_DIALECT=database dialect
-  DB_HOST=database host
-  DB_USERNAME=database username
-  DB_PASSWORD=database password
-  DB_NAME=database name
-  AUTH_SECRET=Secret key for generate token
-  AUTH_EXPIRES_IN=Time to expire the token
-```
-
-## Creating Database
+### Creating Database
 To create the database run the following commands:
 
-```terminal
+```shell
   yarn
   yarn sequelize db:migrate
   yarn sequelize db:seed:all
 ```
 
 A default user will be created with the email admmin@gympoint.com and password **123456**.
+
+## To run the application execute the following commands on terminal
+
+```shell
+  yarn dev # Run the application using nodemon
+  yarn queue  # Run bee-queue to execute tasks
+```
 

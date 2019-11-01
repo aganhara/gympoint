@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Assistance extends Model {
+class HelpOrder extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -12,6 +12,12 @@ class Assistance extends Model {
       { sequelize }
     );
 
+    this.addHook('beforeUpdate', async helpOrder => {
+      if (helpOrder.answer != null && helpOrder.answer_at == null) {
+        helpOrder.answer_at = new Date();
+      }
+    });
+
     return this;
   }
 
@@ -20,4 +26,4 @@ class Assistance extends Model {
   }
 }
 
-export default Assistance;
+export default HelpOrder;
