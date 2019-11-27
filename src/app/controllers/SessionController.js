@@ -40,12 +40,12 @@ class SessionController {
         id,
         name,
         email,
-        token: jwt.sign(
-          { id },
-          authConfiguration.secret,
-          authConfiguration.options
-        ),
       },
+      token: jwt.sign(
+        { id },
+        authConfiguration.secret,
+        authConfiguration.options
+      ),
     });
   }
 }
