@@ -10,6 +10,12 @@ class HelpOrderController {
       where: {
         answer_at: null,
       },
+      include: [
+        {
+          model: Student,
+          attributes: ['name'],
+        },
+      ],
     });
 
     return res.json(helpOrders);
