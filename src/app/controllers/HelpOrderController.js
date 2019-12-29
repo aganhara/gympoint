@@ -25,6 +25,7 @@ class HelpOrderController {
     const { student_id } = req.params;
     const helpOrders = await HelpOrder.findAll({
       where: { student_id },
+      order: [['updated_at', 'desc']],
     });
 
     return res.json(helpOrders);

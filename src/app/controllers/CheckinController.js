@@ -46,6 +46,7 @@ class CheckinController {
         student_id,
       },
       attributes: ['student_id', 'created_at'],
+      order: [['created_at', 'desc']],
     });
     return res.json(checkins);
   }
