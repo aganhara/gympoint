@@ -13,15 +13,21 @@ class CheckinController {
       return res.status(404).json({ error: 'Student does not exist' });
     }
 
-    const { end_date } = await StudentRegistration.findOne({
+    const registration = await StudentRegistration.findOne({
       where: {
         student_id,
       },
     });
 
+    if (!registration) {
+      return res
+        .status(404)
+        .json({ error: 'Student does not have a registration' });
+    }
+
     const today = startOfDay(new Date());
 
-    if (isAfter(today, endOfDay(end_date))) {
+    if (isAfter(today, endOfDay(registration.end_date))) {
       return res.status(401).json({ error: 'Registration expired' });
     }
 
