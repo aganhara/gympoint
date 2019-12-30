@@ -11,6 +11,7 @@ This is part of a training, and the code will be used to certifies my knowledge 
 
 To run the application is necessary a PostgreSQL database and Redis running.
 Create a .env file in root patch and set the following environment variables.
+You can change the file .env.example to .env and put your config values.
 
 ### Creating Database
 To create the database run the following commands:
@@ -21,7 +22,7 @@ To create the database run the following commands:
   yarn sequelize db:seed:all
 ```
 
-A default user will be created with the email admmin@gympoint.com and password **123456**.
+A default user will be created with the email admin@gympoint.com and password **123456**.
 
 ## To run the application execute the following commands on terminal
 
@@ -29,4 +30,5 @@ A default user will be created with the email admmin@gympoint.com and password *
   yarn dev # Run the application using nodemon
   yarn queue  # Run bee-queue to execute tasks
 ```
+
 
