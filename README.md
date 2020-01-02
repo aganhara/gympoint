@@ -13,6 +13,8 @@ To run the application is necessary a PostgreSQL database and Redis running.
 Create a .env file in root patch and set the following environment variables.
 You can change the file .env.example to .env and put your config values.
 
+You can use the https://mailtrap.io/ for testing email send.
+
 ### Creating Database
 To create the database run the following commands:
 
