@@ -32,5 +32,11 @@ A default user will be created with the email admin@gympoint.com and password **
   yarn dev # Run the application using nodemon
   yarn queue  # Run bee-queue to execute tasks
 ```
+@See:
+
+Web: https://github.com/aganhara/gympoint-web
+
+Mobile: https://github.com/aganhara/gympoint-mobile
+
 
 
