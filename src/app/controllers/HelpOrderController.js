@@ -23,9 +23,13 @@ class HelpOrderController {
 
   async show(req, res) {
     const { student_id } = req.params;
+    const { per_page = 100, page = 1 } = req.query;
+
     const helpOrders = await HelpOrder.findAll({
       where: { student_id },
       order: [['updated_at', 'desc']],
+      limit: per_page,
+      offset: per_page * (page - 1),
     });
 
     return res.json(helpOrders);

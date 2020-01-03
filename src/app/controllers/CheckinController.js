@@ -41,16 +41,20 @@ class CheckinController {
 
   async index(req, res) {
     const { student_id } = req.params;
+    const { per_page = 100, page = 1 } = req.query;
+
     const checkStudent = await Student.findByPk(student_id);
 
     if (!checkStudent) {
       return res.status(404).json({ error: 'Student does not exist' });
     }
 
-    const checkins = await Checkin.findAll({
+    const checkins = await Checkin.findAndCountAll({
       where: {
         student_id,
       },
+      limit: per_page,
+      offset: per_page * (page - 1),
       attributes: ['student_id', 'created_at'],
       order: [['created_at', 'desc']],
     });
